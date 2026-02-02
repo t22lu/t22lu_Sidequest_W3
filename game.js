@@ -104,6 +104,12 @@ function gameKeyPressed() {
   // ENTER key triggers the same behaviour as clicking the button
   if (keyCode === ENTER) {
     triggerRandomOutcome();
+    //If key pressed is 1
+  } else if (keyCode === 49) {
+    currentScreen = "win";
+    //If key pressed is 2
+  } else if (keyCode === 50) {
+    currentScreen = "lose";
   }
 }
 
