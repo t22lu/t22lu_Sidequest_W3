@@ -1,12 +1,5 @@
-// NOTE: Do NOT add setup() or draw() in this file
-// setup() and draw() live in main.js
-// This file only defines:
-// 1) drawGame() → what the game screen looks like
-// 2) input handlers → what happens when the player clicks or presses keys
-// 3) helper functions specific to this screen
-
 // Button data
-const gameBtn = {
+const option1Btn = {
   x: 250, // x position (centre of the button)
   y: 550, // y position (centre of the button)
   w: 260, // width
@@ -14,7 +7,7 @@ const gameBtn = {
   label: "PRESS HERE", // text shown on the button
 };
 
-const optBtn = {
+const option2Btn = {
   x: 550, // x position (centre of the button)
   y: 550, // y position (centre of the button)
   w: 260, // width
@@ -25,17 +18,16 @@ const optBtn = {
 // ------------------------------
 // Main draw function for this screen
 // ------------------------------
-// drawGame() is called from main.js *only*
-// when currentScreen === "game"
-function drawGame() {
+
+function drawOption2() {
   // Set background colour for the game screen
-  background(240, 230, 140);
+  background(0, 230, 140);
 
   // ---- Title and instructions text ----
   fill(0); // black text
   textSize(32);
   textAlign(CENTER, CENTER);
-  text("Game Screen", width / 2, 160);
+  text("What Option", width / 2, 160);
 
   textSize(18);
   text(
@@ -46,13 +38,13 @@ function drawGame() {
 
   // ---- Draw the button ----
   // We pass the button object to a helper function
-  drawGameButton(gameBtn);
-  drawGameButton(optBtn);
+  drawOption2Button(option1Btn);
+  drawOption2Button(option2Btn);
 
   // ---- Cursor feedback ----
   // If the mouse is over the button, show a hand cursor
   // Otherwise, show the normal arrow cursor
-  cursor(isHover(gameBtn) || isHover(optBtn) ? HAND : ARROW);
+  cursor(isHover(option1Btn) || isHover(option2Btn) ? HAND : ARROW);
 }
 
 // ------------------------------
@@ -60,7 +52,7 @@ function drawGame() {
 // ------------------------------
 // This function is responsible *only* for drawing the button.
 // It does NOT handle clicks or game logic.
-function drawGameButton({ x, y, w, h, label }) {
+function drawOption2Button({ x, y, w, h, label }) {
   rectMode(CENTER);
 
   // Check if the mouse is hovering over the button
@@ -92,12 +84,12 @@ function drawGameButton({ x, y, w, h, label }) {
 // ------------------------------
 // This function is called from main.js
 // only when currentScreen === "game"
-function gameMousePressed() {
+function option2MousePressed() {
   // Only trigger the outcome if the button is clicked
-  if (isHover(gameBtn)) {
-    currentScreen = "win";
-  } else if (isHover(optBtn)) {
-    currentScreen = "option2";
+  if (isHover(option1Btn)) {
+    currentScreen = "secret";
+  } else if (isHover(option2Btn)) {
+    currentScreen = "lose";
   }
 }
 
@@ -108,9 +100,9 @@ function gameMousePressed() {
 // function gameKeyPressed() {
 //   // ENTER key triggers the same behaviour as clicking the button
 //   if (keyCode === 49) {
-//     currentScreen = "goodend";
+//     currentScreen = "secret";
 //     //If key pressed is 2
 //   } else if (keyCode === 50) {
-//     currentScreen = "option2";
+//     currentScreen = "lose";
 //   }
 // }

@@ -18,37 +18,28 @@ function drawStart() {
   fill(30, 50, 60);
   textSize(46);
   textAlign(CENTER, CENTER);
-  text("A Really Simple Fairy Tale (literally)", width / 2, 180);
+  text("A Really Simple Love Story", width / 2, 180);
 
   // ---- Buttons (data only) ----
-  // These objects store the position/size/label for each button.
-  // Using objects makes it easy to pass them into drawButton()
-  // and also reuse the same information for hover checks.
   const startBtn = {
     x: width / 2,
-    y: 320,
+    y: 620,
     w: 240,
     h: 80,
     label: "START",
   };
 
-  const instrBtn = {
-    x: width / 2,
-    y: 430,
-    w: 240,
-    h: 80,
-    label: "INSTRUCTIONS",
-  };
-
-  // Draw both buttons
+  // Draw start buttons
   drawButton(startBtn);
-  drawButton(instrBtn);
 
   // ---- Cursor feedback ----
   // If the mouse is over either button, show a hand cursor
   // so the player knows it is clickable.
-  const over = isHover(startBtn) || isHover(instrBtn);
+  const over = isHover(startBtn);
   cursor(over ? HAND : ARROW);
+
+  //Draws heart
+  drawHeart(width / 2, height / 2, 250);
 }
 
 // ------------------------------------------------------------
@@ -57,16 +48,10 @@ function drawStart() {
 // Called from main.js only when currentScreen === "start"
 function startMousePressed() {
   // For input checks, we only need x,y,w,h (label is optional)
-  const startBtn = { x: width / 2, y: 320, w: 240, h: 80 };
-  const instrBtn = { x: width / 2, y: 430, w: 240, h: 80 };
-
+  const startBtn = { x: width / 2, y: 620, w: 240, h: 80 };
   // If START is clicked, go to the game screen
   if (isHover(startBtn)) {
     currentScreen = "game";
-  }
-  // If INSTRUCTIONS is clicked, go to the instructions screen
-  else if (isHover(instrBtn)) {
-    currentScreen = "instr";
   }
 }
 
@@ -81,9 +66,9 @@ function startKeyPressed() {
     currentScreen = "game";
   }
 
-  if (key === "i" || key === "I") {
-    currentScreen = "instr";
-  }
+  // if (key === "i" || key === "I") {
+  //   currentScreen = "instr";
+  // }
 }
 
 // ------------------------------------------------------------
@@ -134,4 +119,25 @@ function drawButton({ x, y, w, h, label }) {
   textSize(28);
   textAlign(CENTER, CENTER);
   text(label, x, y);
+}
+
+//draws a heart on the screen
+function drawHeart(x, y, size) {
+  noStroke();
+  fill(220, 80, 100); //soft pink
+
+  //top left
+  circle(x - size * 0.22, y - size * 0.2, size * 0.6);
+  //top right
+  circle(x + size * 0.22, y - size * 0.2, size * 0.6);
+
+  //triangle button
+  triangle(
+    x - size * 0.5,
+    y - size * 0.1,
+    x + size * 0.5,
+    y - size * 0.1,
+    x,
+    y + size * 0.6,
+  );
 }

@@ -22,7 +22,7 @@ function drawWin() {
 
   // Main success message
   textSize(40);
-  text("You Win!", width / 2, 300);
+  text("Yay, You Accepted Y/N confession", width / 2, 300);
 
   // Instruction text
   textSize(20);

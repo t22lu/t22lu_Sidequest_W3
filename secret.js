@@ -5,11 +5,11 @@
 // ------------------------------
 // Main draw function for lose screen
 // ------------------------------
-// drawLose() is called from main.js
-// only when currentScreen === "lose"
-function drawLose() {
+// drawSecret() is called from main.js
+// only when currentScreen === "secret"
+function drawSecret() {
   // Red-tinted background to communicate failure
-  background(255, 210, 210);
+  background(255, 0, 210);
 
   fill(0);
   textAlign(CENTER, CENTER);
@@ -24,19 +24,19 @@ function drawLose() {
 }
 
 // ------------------------------
-// Mouse input for lose screen
+// Mouse input for secret screen
 // ------------------------------
 // Any mouse click returns the player to the start screen
 // (no buttons needed for this simple end state)
-function loseMousePressed() {
+function secretMousePressed() {
   currentScreen = "start";
 }
 
 // ------------------------------
-// Keyboard input for lose screen
+// Keyboard input for secret screen
 // ------------------------------
 // R is commonly used for “restart” in games
-function loseKeyPressed() {
+function secretKeyPressed() {
   if (key === "r" || key === "R") {
     currentScreen = "start";
   }
