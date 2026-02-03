@@ -16,11 +16,16 @@ function drawLose() {
 
   // Main message
   textSize(40);
-  text("Sorry it's too late now, I like someone else", width / 2, 250);
+  text('"Sorry it\'s too late now, I like someone else"', width / 2, 150);
+
+  // Sub message
+  textSize(30);
+  fill(255, 0, 100);
+  text("Bad Ending : Alone for Valentine", width / 2, 200);
 
   // Instruction text
   textSize(20);
-  text("Click or press R to try a different route", width / 2, 270);
+  text("Click or press R to try a different route", width / 2, 250);
 }
 
 // ------------------------------

@@ -55,12 +55,6 @@ function draw() {
   else if (currentScreen === "win") drawWin();
   else if (currentScreen === "lose") drawLose();
   else if (currentScreen === "secret") drawSecret();
-
-  // (Optional teaching note)
-  // This “if/else chain” is a very common early approach.
-  // Later in the course you might replace it with:
-  // - a switch statement, or
-  // - an object/map of screens
 }
 
 // ------------------------------
@@ -106,14 +100,6 @@ function keyPressed() {
 // ------------------------------------------------------------
 // Shared helper function: isHover()
 // ------------------------------------------------------------
-//
-// Many screens have buttons.
-// This helper checks whether the mouse is inside a rectangle.
-//
-// Important: our buttons are drawn using rectMode(CENTER),
-// meaning x,y is the CENTRE of the rectangle.
-// So we check mouseX and mouseY against half-width/half-height bounds.
-//
 // Input:  an object with { x, y, w, h }
 // Output: true if mouse is over the rectangle, otherwise false
 function isHover({ x, y, w, h }) {
