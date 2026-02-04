@@ -15,11 +15,7 @@ const optBtn = {
   label: "Sorry let me think about it", // text shown on the button
 };
 
-// ------------------------------
 // Main draw function for this screen
-// ------------------------------
-// drawGame() is called from main.js *only*
-// when currentScreen === "game"
 function drawGame() {
   // Set background colour for the game screen
   background(240, 230, 140);
@@ -33,22 +29,18 @@ function drawGame() {
   textSize(18);
   text("What do you do?", width / 2, 210);
 
+  textSize(14);
+  text("(Press to select an option)", width / 2, 250);
+
   // ---- Draw the button ----
-  // We pass the button object to a helper function
   drawGameButton(gameBtn);
   drawGameButton(optBtn);
 
   // ---- Cursor feedback ----
-  // If the mouse is over the button, show a hand cursor
-  // Otherwise, show the normal arrow cursor
   cursor(isHover(gameBtn) || isHover(optBtn) ? HAND : ARROW);
 }
 
-// ------------------------------
 // Button drawing helper
-// ------------------------------
-// This function is responsible *only* for drawing the button.
-// It does NOT handle clicks or game logic.
 function drawGameButton({ x, y, w, h, label }) {
   rectMode(CENTER);
 
@@ -76,11 +68,7 @@ function drawGameButton({ x, y, w, h, label }) {
   text(label, x, y);
 }
 
-// ------------------------------
 // Mouse input for this screen
-// ------------------------------
-// This function is called from main.js
-// only when currentScreen === "game"
 function gameMousePressed() {
   // Only trigger the outcome if the button is clicked
   if (isHover(gameBtn)) {
@@ -90,10 +78,7 @@ function gameMousePressed() {
   }
 }
 
-// ------------------------------
 // Keyboard input for this screen
-// ------------------------------
-// Allows keyboard-only interaction (accessibility + design)
 function gameKeyPressed() {
   // ENTER key triggers the same behaviour as clicking the button
   if (keyCode === 49) {

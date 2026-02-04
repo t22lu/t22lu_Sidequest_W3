@@ -15,10 +15,7 @@ const option2Btn = {
   label: "No, they deserve someone better..", // text shown on the button
 };
 
-// ------------------------------
 // Main draw function for this screen
-// ------------------------------
-
 function drawOption2() {
   // Set background colour for the game screen
   background(0, 230, 140);
@@ -38,16 +35,10 @@ function drawOption2() {
   drawOption2Button(option2Btn);
 
   // ---- Cursor feedback ----
-  // If the mouse is over the button, show a hand cursor
-  // Otherwise, show the normal arrow cursor
   cursor(isHover(option1Btn) || isHover(option2Btn) ? HAND : ARROW);
 }
 
-// ------------------------------
 // Button drawing helper
-// ------------------------------
-// This function is responsible *only* for drawing the button.
-// It does NOT handle clicks or game logic.
 function drawOption2Button({ x, y, w, h, label }) {
   rectMode(CENTER);
 
@@ -75,30 +66,12 @@ function drawOption2Button({ x, y, w, h, label }) {
   text(label, x, y);
 }
 
-// ------------------------------
 // Mouse input for this screen
-// ------------------------------
-// This function is called from main.js
-// only when currentScreen === "game"
 function option2MousePressed() {
   // Only trigger the outcome if the button is clicked
   if (isHover(option1Btn)) {
     currentScreen = "secret";
   } else if (isHover(option2Btn)) {
-    currentScreen = "lose";
-  }
-}
-
-// ------------------------------
-// Keyboard input for this screen
-// ------------------------------
-// Allows keyboard-only interaction (accessibility + design)
-function gameKeyPressed() {
-  // ENTER key triggers the same behaviour as clicking the button
-  if (keyCode === 49) {
-    currentScreen = "secret";
-    //If key pressed is 2
-  } else if (keyCode === 50) {
     currentScreen = "lose";
   }
 }
