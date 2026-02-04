@@ -1,7 +1,3 @@
-// This file only defines:
-// 1) drawLose() → what the lose screen looks like
-// 2) input handlers → how the player returns to the start screen
-
 // ------------------------------
 // Main draw function for lose screen
 // ------------------------------
@@ -9,18 +5,18 @@
 // only when currentScreen === "secret"
 function drawSecret() {
   // Red-tinted background to communicate failure
-  background(255, 0, 210);
+  background(249, 203, 156);
 
   fill(0);
   textAlign(CENTER, CENTER);
 
   // Main message
   textSize(40);
-  text("Sorry it's too late now, I like someone else", width / 2, 250);
+  text('"Sorry it\'s too late now, I like someone else"', width / 2, 250);
 
   // Instruction text
   textSize(20);
-  text("Click or press R to try a different route", width / 2, 270);
+  text("Click or press R to try a different route", width / 2, 300);
 }
 
 // ------------------------------

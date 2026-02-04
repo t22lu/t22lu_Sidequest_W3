@@ -1,8 +1,3 @@
-// This file only defines:
-// 1) drawLose() → what the lose screen looks like
-// 2) input handlers → how the player returns to the start screen
-
-// ------------------------------
 // Main draw function for lose screen
 // ------------------------------
 // drawLose() is called from main.js

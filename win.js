@@ -16,6 +16,25 @@ function drawWin() {
   // Instruction text
   textSize(20);
   text("Click or press R to return to Start.", width / 2, 360);
+
+  //smile face
+  smileyFace(width / 2, 170);
+}
+
+//Smiley Face
+function smileyFace(x, y) {
+  noFill();
+  stroke(0);
+  strokeWeight(1);
+
+  //face
+  ellipse(x, y, 120, 120);
+
+  //eyes
+  ellipse(x - 25, y - 15, 12, 12);
+  ellipse(x + 25, y - 15, 12, 12);
+
+  arc(x, y + 10, 60, 40, 0, PI);
 }
 
 // ------------------------------------------------------------

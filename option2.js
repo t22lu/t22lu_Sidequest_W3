@@ -25,7 +25,7 @@ function drawOption2() {
 
   // ---- Title and instructions text ----
   fill(0); // black text
-  textSize(32);
+  textSize(40);
   textAlign(CENTER, CENTER);
   text("What do you do now?", width / 2, 160);
 

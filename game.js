@@ -26,7 +26,7 @@ function drawGame() {
 
   // ---- Title and instructions text ----
   fill(0); // black text
-  textSize(32);
+  textSize(40);
   textAlign(CENTER, CENTER);
   text("Y/N is confessing to you...", width / 2, 160);
 
