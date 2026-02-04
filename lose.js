@@ -21,7 +21,7 @@ function drawLose() {
   // Sub message
   textSize(30);
   fill(255, 0, 100);
-  text("Bad Ending : Alone for Valentine", width / 2, 200);
+  text("Bad Ending : All alone for Valentine", width / 2, 200);
 
   // Instruction text
   textSize(20);

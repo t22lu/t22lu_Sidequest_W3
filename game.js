@@ -1,17 +1,10 @@
-// NOTE: Do NOT add setup() or draw() in this file
-// setup() and draw() live in main.js
-// This file only defines:
-// 1) drawGame() → what the game screen looks like
-// 2) input handlers → what happens when the player clicks or presses keys
-// 3) helper functions specific to this screen
-
 // Button data
 const gameBtn = {
   x: 250, // x position (centre of the button)
   y: 550, // y position (centre of the button)
   w: 260, // width
   h: 90, // height
-  label: "PRESS HERE", // text shown on the button
+  label: "I like you too Y/N", // text shown on the button
 };
 
 const optBtn = {
@@ -19,7 +12,7 @@ const optBtn = {
   y: 550, // y position (centre of the button)
   w: 260, // width
   h: 90, // height
-  label: "PRESS HERE", // text shown on the button
+  label: "Sorry let me think about it", // text shown on the button
 };
 
 // ------------------------------
@@ -35,14 +28,10 @@ function drawGame() {
   fill(0); // black text
   textSize(32);
   textAlign(CENTER, CENTER);
-  text("Game Screen", width / 2, 160);
+  text("Y/N is confessing to you...", width / 2, 160);
 
   textSize(18);
-  text(
-    "Click the button (or press ENTER) for a random result.",
-    width / 2,
-    210,
-  );
+  text("What do you do?", width / 2, 210);
 
   // ---- Draw the button ----
   // We pass the button object to a helper function
@@ -82,7 +71,7 @@ function drawGameButton({ x, y, w, h, label }) {
 
   // Draw the button text
   fill(0);
-  textSize(28);
+  textSize(20);
   textAlign(CENTER, CENTER);
   text(label, x, y);
 }
@@ -101,16 +90,16 @@ function gameMousePressed() {
   }
 }
 
-// // ------------------------------
-// // Keyboard input for this screen
-// // ------------------------------
-// // Allows keyboard-only interaction (accessibility + design)
-// function gameKeyPressed() {
-//   // ENTER key triggers the same behaviour as clicking the button
-//   if (keyCode === 49) {
-//     currentScreen = "goodend";
-//     //If key pressed is 2
-//   } else if (keyCode === 50) {
-//     currentScreen = "option2";
-//   }
-// }
+// ------------------------------
+// Keyboard input for this screen
+// ------------------------------
+// Allows keyboard-only interaction (accessibility + design)
+function gameKeyPressed() {
+  // ENTER key triggers the same behaviour as clicking the button
+  if (keyCode === 49) {
+    currentScreen = "win";
+    //If key pressed is 2
+  } else if (keyCode === 50) {
+    currentScreen = "option2";
+  }
+}

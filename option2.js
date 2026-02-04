@@ -4,7 +4,7 @@ const option1Btn = {
   y: 550, // y position (centre of the button)
   w: 260, // width
   h: 90, // height
-  label: "PRESS HERE", // text shown on the button
+  label: "Go confess your love to them", // text shown on the button
 };
 
 const option2Btn = {
@@ -12,7 +12,7 @@ const option2Btn = {
   y: 550, // y position (centre of the button)
   w: 260, // width
   h: 90, // height
-  label: "PRESS HERE", // text shown on the button
+  label: "No, they deserve someone better..", // text shown on the button
 };
 
 // ------------------------------
@@ -27,14 +27,10 @@ function drawOption2() {
   fill(0); // black text
   textSize(32);
   textAlign(CENTER, CENTER);
-  text("What Option", width / 2, 160);
+  text("What do you do now?", width / 2, 160);
 
   textSize(18);
-  text(
-    "Click the button (or press ENTER) for a random result.",
-    width / 2,
-    210,
-  );
+  text("Select an option to reveal your ending", width / 2, 210);
 
   // ---- Draw the button ----
   // We pass the button object to a helper function
@@ -74,7 +70,7 @@ function drawOption2Button({ x, y, w, h, label }) {
 
   // Draw the button text
   fill(0);
-  textSize(28);
+  textSize(16);
   textAlign(CENTER, CENTER);
   text(label, x, y);
 }
@@ -93,16 +89,16 @@ function option2MousePressed() {
   }
 }
 
-// // ------------------------------
-// // Keyboard input for this screen
-// // ------------------------------
-// // Allows keyboard-only interaction (accessibility + design)
-// function gameKeyPressed() {
-//   // ENTER key triggers the same behaviour as clicking the button
-//   if (keyCode === 49) {
-//     currentScreen = "secret";
-//     //If key pressed is 2
-//   } else if (keyCode === 50) {
-//     currentScreen = "lose";
-//   }
-// }
+// ------------------------------
+// Keyboard input for this screen
+// ------------------------------
+// Allows keyboard-only interaction (accessibility + design)
+function gameKeyPressed() {
+  // ENTER key triggers the same behaviour as clicking the button
+  if (keyCode === 49) {
+    currentScreen = "secret";
+    //If key pressed is 2
+  } else if (keyCode === 50) {
+    currentScreen = "lose";
+  }
+}
